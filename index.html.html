@@ -1,0 +1,2126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical Education Hub (PEH) - Building Globally Competent Undergraduates</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --white: #ffffff;
+            --off-white: #f8f9fa;
+            --light-gray: #f0f2f5;
+            --blue: #1e40af;
+            --blue-dark: #1e3a8a;
+            --blue-light: #3b82f6;
+            --gold: #d4a843;
+            --gold-light: #f0d78c;
+            --gold-dark: #b8941f;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+            --text-light: #9ca3af;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            padding: 0.75rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--blue);
+        }
+
+        .logo-text span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--blue);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-gray) 50%, var(--off-white) 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(30, 64, 175, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 168, 67, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--blue-dark);
+        }
+
+        .hero-content h1 .highlight {
+            color: var(--gold);
+            position: relative;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30, 64, 175, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--blue);
+            border: 2px solid var(--blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--blue);
+            color: var(--white);
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(212, 168, 67, 0.3);
+        }
+
+        .btn-gold:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .floating-card {
+            position: absolute;
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-card i {
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+
+        .floating-card-1 {
+            top: 10%;
+            left: -20px;
+            animation-delay: 0s;
+        }
+
+        .floating-card-2 {
+            bottom: 20%;
+            right: -30px;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .stats-bar {
+            background: var(--blue);
+            padding: 3rem 0;
+            position: relative;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--gold);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 0;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--blue-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .gold-line {
+            width: 60px;
+            height: 4px;
+            background: var(--gold);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 3px solid var(--gold);
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        .about-content h3 {
+            font-size: 2rem;
+            color: var(--blue-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .about-content p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .feature-item i {
+            font-size: 1.25rem;
+            color: var(--gold);
+            margin-top: 0.25rem;
+        }
+
+        .feature-item h4 {
+            font-size: 1rem;
+            color: var(--blue-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--off-white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-bottom-color: var(--gold);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon i {
+            font-size: 1.5rem;
+            color: var(--white);
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            color: var(--blue-dark);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Accelerator Section */
+        .accelerator {
+            background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .accelerator::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 168, 67, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .accelerator .section-header h2,
+        .accelerator .section-header p {
+            color: var(--white);
+        }
+
+        .accelerator .gold-line {
+            background: var(--gold);
+        }
+
+        .accelerator-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .accelerator-info h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold-light);
+        }
+
+        .accelerator-info p {
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .accelerator-features {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .accelerator-features li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .accelerator-features i {
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+
+        .accelerator-image {
+            position: relative;
+        }
+
+        .accelerator-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border: 2px solid var(--light-gray);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transform: translateY(-5px);
+        }
+
+        .testimonial-card::before {
+            content: '\201C';
+            font-size: 4rem;
+            color: var(--gold);
+            opacity: 0.3;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-info h4 {
+            font-size: 1rem;
+            color: var(--blue-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-info p {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin: 0;
+        }
+
+        .testimonial-stars {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Blogs Section */
+        .blogs {
+            background: var(--off-white);
+        }
+
+        .blogs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .blog-image {
+            height: 220px;
+            background: linear-gradient(135deg, var(--blue-light) 0%, var(--blue) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-image i {
+            font-size: 3rem;
+            color: rgba(255,255,255,0.3);
+        }
+
+        .blog-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0,0,0,0.2), transparent);
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(30, 64, 175, 0.1);
+            color: var(--blue);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-content h3 {
+            font-size: 1.15rem;
+            color: var(--blue-dark);
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .blog-content p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s;
+        }
+
+        .read-more:hover {
+            gap: 0.75rem;
+        }
+
+        /* Resources Section */
+        .resources {
+            background: var(--white);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .resource-card {
+            background: var(--off-white);
+            padding: 2rem;
+            border-radius: 15px;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            transition: all 0.3s;
+        }
+
+        .resource-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: var(--white);
+        }
+
+        .resource-icon {
+            min-width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .resource-icon i {
+            font-size: 1.25rem;
+            color: var(--white);
+        }
+
+        .resource-info h3 {
+            font-size: 1.15rem;
+            color: var(--blue-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .resource-info p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .resource-link {
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Opportunities Section */
+        .opportunities {
+            background: var(--off-white);
+        }
+
+        .opportunities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .opportunity-card {
+            background: var(--white);
+            border: 2px solid var(--light-gray);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .opportunity-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--blue), var(--gold));
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .opportunity-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .opportunity-card:hover {
+            border-color: var(--blue);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .opportunity-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.75rem;
+            color: var(--blue);
+        }
+
+        .opportunity-card h3 {
+            font-size: 1.25rem;
+            color: var(--blue-dark);
+            margin-bottom: 1rem;
+        }
+
+        .opportunity-card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .opportunity-status {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(30, 64, 175, 0.1);
+            color: var(--blue);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .opportunity-status.active {
+            background: rgba(34, 197, 94, 0.1);
+            color: #16a34a;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            padding: 5rem 0;
+        }
+
+        .newsletter::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 168, 67, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .newsletter-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .newsletter h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .newsletter > .section-container > p {
+            color: rgba(255,255,255,0.85);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto 2rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            border: 2px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .newsletter-form input:focus {
+            border-color: var(--gold);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .newsletter-warning {
+            background: rgba(212, 168, 67, 0.15);
+            border: 1px solid rgba(212, 168, 67, 0.3);
+            border-radius: 15px;
+            padding: 1.25rem;
+            margin-top: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            text-align: left;
+        }
+
+        .newsletter-warning i {
+            color: var(--gold);
+            font-size: 1.25rem;
+            margin-top: 0.25rem;
+        }
+
+        .newsletter-warning p {
+            color: rgba(255,255,255,0.9);
+            font-size: 0.95rem;
+            margin: 0;
+            font-style: italic;
+        }
+
+        /* Events Section */
+        .events {
+            background: var(--white);
+        }
+
+        .events-timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .events-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--blue), var(--gold));
+            transform: translateX(-50%);
+        }
+
+        .event-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .event-item:nth-child(even) .event-content {
+            grid-column: 2;
+        }
+
+        .event-item:nth-child(even) .event-date {
+            grid-column: 1;
+            text-align: right;
+        }
+
+        .event-dot {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--gold);
+            border-radius: 50%;
+            border: 4px solid var(--white);
+            box-shadow: 0 0 0 3px var(--gold);
+            z-index: 2;
+        }
+
+        .event-date {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .event-date-box {
+            background: var(--blue);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .event-date-box .day {
+            font-size: 1.75rem;
+            font-weight: 800;
+            display: block;
+            line-height: 1;
+        }
+
+        .event-date-box .month {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        .event-content {
+            background: var(--off-white);
+            padding: 1.5rem 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .event-content h3 {
+            font-size: 1.2rem;
+            color: var(--blue-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .event-content p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .event-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .event-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        .event-meta i {
+            color: var(--gold);
+        }
+
+        .add-calendar {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--white);
+            color: var(--blue);
+            border: 2px solid var(--blue);
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .add-calendar:hover {
+            background: var(--blue);
+            color: var(--white);
+        }
+
+        /* Connect/Footer Section */
+        .connect {
+            background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 100%);
+            color: var(--white);
+            padding: 5rem 0 2rem;
+        }
+
+        .connect-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .connect-brand {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .connect-brand .logo {
+            margin-bottom: 1rem;
+        }
+
+        .connect-brand .logo img {
+            height: 50px;
+        }
+
+        .connect-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold-light);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .connect-brand p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .social-links a:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .connect-column h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold-light);
+        }
+
+        .connect-column ul {
+            list-style: none;
+        }
+
+        .connect-column ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .connect-column ul li a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .connect-column ul li a:hover {
+            color: var(--gold);
+        }
+
+        .whatsapp-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: #25d366;
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-cta:hover {
+            background: #128c7e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Sticky CTA */
+        .sticky-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: flex-end;
+        }
+
+        .sticky-btn {
+            padding: 0.875rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .sticky-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .sticky-whatsapp {
+            background: #25d366;
+            color: var(--white);
+        }
+
+        .sticky-apply {
+            background: var(--gold);
+            color: var(--white);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container,
+            .about-grid,
+            .accelerator-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .services-grid,
+            .blogs-grid,
+            .opportunities-grid,
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .connect-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .events-timeline::before {
+                left: 20px;
+            }
+
+            .event-item {
+                grid-template-columns: 1fr;
+                padding-left: 50px;
+            }
+
+            .event-item:nth-child(even) .event-content,
+            .event-item:nth-child(even) .event-date {
+                grid-column: 1;
+                text-align: left;
+            }
+
+            .event-dot {
+                left: 20px;
+            }
+
+            .event-date {
+                align-items: flex-start;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services-grid,
+            .blogs-grid,
+            .opportunities-grid,
+            .resources-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .connect-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .sticky-cta {
+                left: 20px;
+                right: 20px;
+                align-items: center;
+            }
+
+            .sticky-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="/mnt/agents/upload/IMG-20250530-WA0028.jpg" alt="PEH Logo">
+                <span class="logo-text">PEH<span>.</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#blogs">Blogs</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#opportunities">Opportunities</a></li>
+                <li><a href="#connect">Connect</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content fade-in">
+                <h1>Building <span class="highlight">Globally Competent</span> Undergraduates</h1>
+                <p>Practical Education Hub empowers students with real-world skills, mentorship, and hands-on training that complements academic learning and prepares you for global success.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">
+                        Explore Our Services <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#about" class="btn btn-secondary">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image fade-in">
+                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=500&fit=crop" alt="Students collaborating">
+                <div class="floating-card floating-card-1">
+                    <i class="fas fa-users"></i>
+                    <div>
+                        <strong>500+</strong>
+                        <p style="font-size: 0.8rem; margin: 0; color: var(--text-gray);">Students Mentored</p>
+                    </div>
+                </div>
+                <div class="floating-card floating-card-2">
+                    <i class="fas fa-globe"></i>
+                    <div>
+                        <strong>Global</strong>
+                        <p style="font-size: 0.8rem; margin: 0; color: var(--text-gray);">Research Network</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>Students Mentored</p>
+            </div>
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>Industry Partners</p>
+            </div>
+            <div class="stat-item">
+                <h3>30+</h3>
+                <p>Research Projects</p>
+            </div>
+            <div class="stat-item">
+                <h3>15+</h3>
+                <p>Universities Reached</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-container">
+            <div class="about-grid">
+                <div class="about-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=500&fit=crop" alt="Students learning">
+                </div>
+                <div class="about-content fade-in">
+                    <h3>Who We Are</h3>
+                    <p>Practical Education Hub (PEH) is a community committed to building globally competent, innovative, and problem-solving undergraduates.</p>
+                    <p>We do this by providing access to real-world-relevant learning, mentorship, and practical training experiences that complement students' academic journey.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Real-World Learning</h4>
+                                <p>Hands-on projects that mirror industry challenges</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Expert Mentorship</h4>
+                                <p>One-on-one guidance from industry professionals</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Global Network</h4>
+                                <p>Connect with researchers worldwide</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Career Ready</h4>
+                                <p>Job-ready skills before graduation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <h2>Our Services</h2>
+                <div class="gold-line"></div>
+                <p>Comprehensive programs designed to bridge the gap between academia and industry</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Industry-Simulated Projects</h3>
+                    <p>We collaborate with industry experts to transform real business and societal challenges into practical coursework and projects that equip students with hands-on, job-ready skills while still in school.</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Internship Bridge Initiative</h3>
+                    <p>We connect students from diverse universities with researchers across the world to participate in real research projects aligned with their field of study, strengthening research and writing skills.</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>One-on-One Mentorship</h3>
+                    <p>We connect students with experienced mentors across diverse industries to provide personalized guidance, career insights, and practical advice that builds confidence and clarifies career paths.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accelerator Section -->
+    <section class="accelerator">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <h2>3-Month Skill Accelerator</h2>
+                <div class="gold-line"></div>
+                <p>An intensive development programme designed for rapid skill acquisition</p>
+            </div>
+            
+            <div class="accelerator-content">
+                <div class="accelerator-info fade-in">
+                    <h3>Transform Your Skills in 90 Days</h3>
+                    <p>The Practical Education Hub 3-Month Skill Accelerator Programme is an intensive development programme designed to equip students with a high-demand technical or soft skill through practical learning and hands-on projects.</p>
+                    <p>Participants receive guided training, work on real-life projects, and benefit from a structured accountability system that ensures active participation and measurable progress.</p>
+                    
+                    <ul class="accelerator-features">
+                        <li><i class="fas fa-check"></i> Practical, hands-on learning approach</li>
+                        <li><i class="fas fa-check"></i> Real-life projects to strengthen understanding</li>
+                        <li><i class="fas fa-check"></i> Structured accountability system</li>
+                        <li><i class="fas fa-check"></i> Exclusive community sessions</li>
+                        <li><i class="fas fa-check"></i> Networking opportunities and webinars</li>
+                        <li><i class="fas fa-check"></i> Career development focus</li>
+                    </ul>
+                    
+                    <a href="#connect" class="btn btn-primary" style="margin-top: 2rem;">
+                        Apply Now <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="accelerator-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=500&fit=crop" alt="Accelerator programme">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <h2>What Our Students Say</h2>
+                <div class="gold-line"></div>
+                <p>Real stories from students who transformed their careers with PEH</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 - Placeholder for your real testimonial -->
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Through the Practical Education Hub mentorship program, I achieved over 80% of my goal to master Microsoft Excel. With the guidance of my mentor, Mr. Emmanuel Ugwara, and the support of my accountability partner, I can now confidently use key functions like SUM 
+and AVERAGE. This program truly accelerated my growth!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">A</div>
+                        <div class="testimonial-info">
+                            <h4>Emmanuel Chizie</h4>
+                            <p>National diploma, Federal Polytechnic Ilaro Accounting</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 - Placeholder for your real testimonial -->
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"As a medical student, balancing academics and personal goals can be overwhelming, but the Practical Education Hub mentorship program gave me the structure I needed. This mentorship didn’t just help me achieve my goals — it gave me clarity, confidence, and the belief that I can keep reaching higher.."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">K</div>
+                        <div class="testimonial-info">
+                            <h4>Mercy Akpan</h4>
+                            <p>400lv, University of Benin, Medicine and Surgery</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 - Placeholder for your real testimonial -->
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">""During my personalized mentorship session with Practical Education Hub, I received advice that transformed how I approach my career goals. Over the past few weeks, I’ve reached about 70% of my set goals, including enhancing my LinkedIn profile and building valuable industry connections."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">F</div>
+                        <div class="testimonial-info">
+                            <h4>Akangbe Ademola</h4>
+                            <p>ND2, Yabatech college of technology,epe campus (Agricultural Technology)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blogs Section -->
+    <section class="blogs" id="blogs">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <h2>Latest from Our Blog</h2>
+                <div class="gold-line"></div>
+                <p>Insights, tips, and stories to fuel your growth journey</p>
+            </div>
+            
+            <div class="blogs-grid">
+                <div class="blog-card fade-in">
+                    <div class="blog-image">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-tag">Career Tips</span>
+                        <h3>How to Build a Standout Portfolio as an Undergraduate</h3>
+                        <p>Learn the essential steps to create a portfolio that catches the attention of recruiters and showcases your practical skills.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-card fade-in">
+                    <div class="blog-image">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-tag">Networking</span>
+                        <h3>The Power of Mentorship: Why Every Student Needs a Guide</h3>
+                        <p>Discover how one-on-one mentorship can accelerate your career growth and provide clarity in your academic journey.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-card fade-in">
+                    <div class="blog-image">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="blog-content">
+                        <span class="blog-tag">Skill Building</span>
+                        <h3>Top 5 High-Demand Skills for 2026 and Beyond</h3>
+                        <p>Stay ahead of the curve by mastering these technical and soft skills that employers are actively seeking.</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources" id="resources">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <h2>Resources</h2>
+                <div class="gold-line"></div>
+                <p>Curated tools and materials to support your learning journey</p>
+            </div>
+            
+            <div class="resources-grid">
+                <div class="resource-card fade-in">
+                    <div class="resource-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="resource-info">
+                        <h3>Career Guide Library</h3>
+                        <p>Downloadable guides covering resume writing, interview preparation, and career planning strategies.</p>
+                        <a href="#" class="resource-link">Access Guides <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                
+                <div class="resource-card fade-in">
+                    <div class="resource-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="resource-info">
+                        <h3>Webinar Recordings</h3>
+                        <p>Past sessions on personal growth, career development, and real-world impact strategies.</p>
+                        <a href="#" class="resource-link">Watch Now <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                
+                <div class="resource-card fade-in">
+                    <div class="resource-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="resource-info">
+                        <h3>Project Templates</h3>
+                        <p>Industry-standard templates for research proposals, project reports, and presentations.</p>
+                        <a href="#" class="resource-link">Download <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                
+                <div class="resource-card fade-in">
+                    <div class="resource-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="resource-info">
+                        <h3>Community Directory</h3>
+                        <p>Connect with fellow students, mentors, and industry professionals in our growing network.</p>
+                        <a href="#" class="resource-link">Join Community <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events" id="events">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <h2>Upcoming Events</h2>
+                <div class="gold-line"></div>
+                <p>Mark your calendar for our webinars, cohort launches, and application deadlines</p>
+            </div>
+            
+            <div class="events-timeline">
+                <div class="event-item fade-in">
+                    <div class="event-dot"></div>
+                    <div class="event-date">
+                        <div class="event-date-box">
+                            <span class="day">15</span>
+                            <span class="month">JUN</span>
+                        </div>
+                    </div>
+                    <div class="event-content">
+                        <h3>Skill Accelerator Cohort 4 — Application Deadline</h3>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 11:59 PM WAT</span>
+                            <span><i class="fas fa-globe"></i> Online</span>
+                        </div>
+                        <p>Last day to submit your application for the 3-Month Skill Accelerator Programme. Don't miss this chance to level up your skills.</p>
+                        <a href="#" class="add-calendar" onclick="addToCalendar('Skill Accelerator Cohort 4 Deadline', '2026-06-15', 'Last day to apply for the PEH 3-Month Skill Accelerator Programme')">
+                            <i class="fas fa-calendar-plus"></i> Add to Calendar
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="event-item fade-in">
+                    <div class="event-dot"></div>
+                    <div class="event-date">
+                        <div class="event-date-box">
+                            <span class="day">22</span>
+                            <span class="month">JUN</span>
+                        </div>
+                    </div>
+                    <div class="event-content">
+                        <h3>Career Growth Webinar: Building Your Personal Brand</h3>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 7:00 PM WAT</span>
+                            <span><i class="fas fa-video"></i> Zoom</span>
+                        </div>
+                        <p>Learn how to build a compelling personal brand that attracts recruiters and opens doors to global opportunities.</p>
+                        <a href="#" class="add-calendar" onclick="addToCalendar('PEH Career Growth Webinar', '2026-06-22', 'Join PEH for a webinar on building your personal brand as a student')">
+                            <i class="fas fa-calendar-plus"></i> Add to Calendar
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="event-item fade-in">
+                    <div class="event-dot"></div>
+                    <div class="event-date">
+                        <div class="event-date-box">
+                            <span class="day">01</span>
+                            <span class="month">JUL</span>
+                        </div>
+                    </div>
+                    <div class="event-content">
+                        <h3>Skill Accelerator Cohort 4 — Programme Launch</h3>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 10:00 AM WAT</span>
+                            <span><i class="fas fa-users"></i> Virtual Kickoff</span>
+                        </div>
+                        <p>Official launch of Cohort 4! Meet your mentors, get your project briefs, and start your 90-day transformation journey.</p>
+                        <a href="#" class="add-calendar" onclick="addToCalendar('Skill Accelerator Cohort 4 Launch', '2026-07-01', 'Kickoff event for PEH Skill Accelerator Cohort 4')">
+                            <i class="fas fa-calendar-plus"></i> Add to Calendar
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="event-item fade-in">
+                    <div class="event-dot"></div>
+                    <div class="event-date">
+                        <div class="event-date-box">
+                            <span class="day">10</span>
+                            <span class="month">JUL</span>
+                        </div>
+                    </div>
+                    <div class="event-content">
+                        <h3>Research Internship Bridge — Info Session</h3>
+                        <div class="event-meta">
+                            <span><i class="fas fa-clock"></i> 6:00 PM WAT</span>
+                            <span><i class="fas fa-video"></i> Google Meet</span>
+                        </div>
+                        <p>Learn how to connect with global researchers, what projects are available, and how to prepare a winning application.</p>
+                        <a href="#" class="add-calendar" onclick="addToCalendar('Internship Bridge Info Session', '2026-07-10', 'Info session on PEH Research Internship Bridge Initiative')">
+                            <i class="fas fa-calendar-plus"></i> Add to Calendar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opportunities Section -->
+    <section class="opportunities" id="opportunities">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <h2>Opportunities</h2>
+                <div class="gold-line"></div>
+                <p>Current openings and programs you can join today</p>
+            </div>
+            
+            <div class="opportunities-grid">
+                <div class="opportunity-card fade-in">
+                    <div class="opportunity-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Skill Accelerator Cohort 4</h3>
+                    <p>Join our next 3-month intensive programme. Applications open for students ready to master high-demand skills.</p>
+                    <span class="opportunity-status active">Now Open</span>
+                </div>
+                
+                <div class="opportunity-card fade-in">
+                    <div class="opportunity-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Research Internship Bridge</h3>
+                    <p>Connect with global researchers in your field. Perfect for students looking to strengthen research capabilities.</p>
+                    <span class="opportunity-status active">Recruiting</span>
+                </div>
+                
+                <div class="opportunity-card fade-in">
+                    <div class="opportunity-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Industry Project Collaboration</h3>
+                    <p>Work on real business challenges with industry partners. Build your portfolio with practical experience.</p>
+                    <span class="opportunity-status">Coming Soon</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="section-container">
+            <div class="newsletter-container fade-in">
+                <h2>Join the PEH Mailing List</h2>
+                <p>Start receiving value directly in your inbox. 🚀</p>
+                
+                <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-gold">
+                        Subscribe <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+                
+                <div class="newsletter-warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>⚠️ Warning: Our subscribers have been reported to become high achievers after consistently receiving weekly student tips, growth resources, and exclusive opportunity alerts from Practical Education Hub.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connect/Footer Section -->
+    <section class="connect" id="connect">
+        <div class="section-container">
+            <div class="connect-grid">
+                <div class="connect-brand">
+                    <a href="#" class="logo">
+                        <img src="/mnt/agents/upload/IMG-20250530-WA0028.jpg" alt="PEH Logo">
+                        <span style="color: var(--gold-light); font-size: 1.3rem; font-weight: 800;">Practical Education Hub</span>
+                    </a>
+                    <p>Building globally competent, innovative, and problem-solving undergraduates through practical learning and mentorship.</p>
+                    
+                    <a href="https://chat.whatsapp.com/BwpQwRfX6Nw8pAVB0YOXae?mode=gi_t" target="_blank" class="whatsapp-cta">
+                        <i class="fab fa-whatsapp"></i> Join Our WhatsApp Community
+                    </a>
+                    
+                    <div class="social-links" style="margin-top: 1.5rem;">
+                        <a href="https://www.linkedin.com/company/practical-education-hub/" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.facebook.com/PracticalEducationHub" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://x.com/Prac_edu_hub" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com/practicaleducationhub" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="connect-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#blogs">Blog</a></li>
+                        <li><a href="#resources">Resources</a></li>
+                    </ul>
+                </div>
+                
+                <div class="connect-column">
+                    <h4>Programmes</h4>
+                    <ul>
+                        <li><a href="#services">Skill Accelerator</a></li>
+                        <li><a href="#services">Internship Bridge</a></li>
+                        <li><a href="#services">Mentorship</a></li>
+                        <li><a href="#services">Industry Projects</a></li>
+                    </ul>
+                </div>
+                
+                <div class="connect-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:practicaleducationhub9@gmail.com">practicaleducationhub9@gmail.com</a></li>
+                        <li><a href="#connect">WhatsApp Community</a></li>
+                        <li><a href="#opportunities">Current Opportunities</a></li>
+                        <li><a href="#">Partner With Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 Practical Education Hub. All rights reserved. | <a href="#" style="color: rgba(255,255,255,0.6);">Privacy Policy</a> | <a href="#" style="color: rgba(255,255,255,0.6);">Terms of Service</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sticky CTA Buttons -->
+    <div class="sticky-cta">
+        <a href="https://chat.whatsapp.com/BwpQwRfX6Nw8pAVB0YOXae?mode=gi_t" target="_blank" class="sticky-btn sticky-whatsapp">
+            <i class="fab fa-whatsapp"></i> Join Community 
+        </a>
+        <a href="#opportunities" class="sticky-btn sticky-apply">
+            <i class="fas fa-rocket"></i> Apply Now
+        </a>
+    </div>
+
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.background = 'white';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.padding = '2rem';
+                navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Add to Calendar functionality
+        function addToCalendar(title, date, description) {
+            const startDate = new Date(date);
+            const endDate = new Date(startDate);
+            endDate.setHours(endDate.getHours() + 1);
+            
+            const formatDate = (d) => d.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+            
+            const icsContent = [
+                'BEGIN:VCALENDAR',
+                'VERSION:2.0',
+                'BEGIN:VEVENT',
+                `DTSTART:${formatDate(startDate)}`,
+                `DTEND:${formatDate(endDate)}`,
+                `SUMMARY:${title}`,
+                `DESCRIPTION:${description}`,
+                'END:VEVENT',
+                'END:VCALENDAR'
+            ].join('\n');
+            
+            const blob = new Blob([icsContent], { type: 'text/calendar' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${title.replace(/\s+/g, '_')}.ics`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            alert('Event added to your calendar!');
+        }
+
+        // Newsletter form handler
+        function handleNewsletterSubmit(e) {
+            e.preventDefault();
+            const email = e.target.querySelector('input').value;
+            alert(`Welcome to the PEH community! 🚀\n\nWe've added ${email} to our mailing list. Watch your inbox for weekly student tips, growth resources, and exclusive opportunity alerts.`);
+            e.target.reset();
+        }
+
+        // Sticky CTA hide on footer
+        const stickyCta = document.querySelector('.sticky-cta');
+        const footer = document.querySelector('.connect');
+        
+        window.addEventListener('scroll', () => {
+            const footerTop = footer.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (footerTop < windowHeight) {
+                stickyCta.style.opacity = '0';
+                stickyCta.style.pointerEvents = 'none';
+            } else {
+                stickyCta.style.opacity = '1';
+                stickyCta.style.pointerEvents = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
